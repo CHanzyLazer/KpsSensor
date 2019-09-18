@@ -17,6 +17,3 @@ if s.cfg_ok:
 
     bg_cal.start()
     dis_main.start()
-
-#tap_setting = (0.05, 30, 50, 15, 2, 0)
-
