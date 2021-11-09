@@ -38,6 +38,8 @@ tap_setting:
 ###################
 dispaly_setting:
   
+  sensor_basecolor: [0,0,0]
+  # set the background color of sensor in [R,G,B]
   center_num: 4
   # defult: 4
   # set the base kps in center of the plate

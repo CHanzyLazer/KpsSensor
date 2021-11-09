@@ -1,7 +1,5 @@
 import defultConfig
 import error
-from allCompile import *
-from re import search, findall
 import yaml
 from shutil import copyfile
 
