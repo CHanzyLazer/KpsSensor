@@ -5,7 +5,7 @@ from sys import exit
 
 def cfg_open_error():
     Tk().withdraw()
-    showwarning(title='Warning', message='Can\'t open config.cfg, created a new defult config, you need to restart by hand')
+    showwarning(title='Warning', message='Can\'t open config.yaml, created a new defult config and the old is copied into \"config.yaml.bak\", you need to restart by hand')
     exit()
 
 def cfg_length_error(length):
@@ -30,15 +30,20 @@ def cfg_keynum_error():
 
 def cfg_tap_error():
     Tk().withdraw()
-    showerror(title='Error', message='tap error, there are missed some tap setting in config.cfg, fix it or delete the config')
+    showerror(title='Error', message='tap error, there are missed some tap setting in config.yaml, fix it or delete the config')
     exit()
 
 def cfg_dis_error():
     Tk().withdraw()
-    showerror(title='Error', message='display error, there are missed some display setting in config.cfg, fix it or delete the config')
+    showerror(title='Error', message='display error, there are missed some display setting in config.yaml, fix it or delete the config')
     exit()
 
 def img_error(img):
     Tk().withdraw()
-    showerror(title='Error', message='image error, there are missed image \'{}\' in pht, find it or reinstall'.format(img))
+    showerror(title='Error', message='image error, there are missed image in \'{}\', find it or reinstall'.format(img))
+    exit()
+
+def inside_error(info):
+    Tk().withdraw()
+    showerror(title='Inside_Error', message='inside error, there is an inside error, please contact me if necessary.\nInfo: {}'.format(info))
     exit()

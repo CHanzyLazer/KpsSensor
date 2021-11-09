@@ -12,18 +12,21 @@ class main:
     def start(self):
         while self.akey.is_openning:
             KPS = 0
+            allkeytap = 0
             for keyn in self.all_key:
                 keyn._cal_time()
                 keyn._trigger()
                 keyn._cal_dposition()
                 KPS += keyn._cal_KPS()
                 keyn._cal_dKPS()
+                allkeytap += keyn.alltap
             self.akey._cal_KPS(KPS)
             self.akey._cal_dKPS()
+            self.akey.alltap = allkeytap
             sleep(0.01)
 
 class allKey:
-    def __init__(self, tapframes = 100, need_standframes = 100, basemul = 10, decrease_lv = 2, zero_decrease_lv = 1):
+    def __init__(self, dposition_decrease= 0.05, tapframes = 100, need_standframes = 100, basemul = 10, decrease_lv = 2, zero_decrease_lv = 1):
         # staticmethod
         self.tapframes = tapframes
         self.minkps = (100/self.tapframes)
@@ -145,7 +148,7 @@ class key(allKey):
 
     def _keytap(self):
         self.alltap += 1
-        print("key{}:{}".format(self.keynum, self.alltap))
+        #print("key{}:{}".format(self.keynum, self.alltap))
 
     def _tapint1(self):
         self.__tapint = self.__tapint<<1
@@ -171,6 +174,7 @@ class key(allKey):
     def _trigger_tap(self):
         if self.position and not self.keypev:
             self._tapint1()
+            self._keytap()
             #print(Key.KPS)
         else:
             self._tapint0()

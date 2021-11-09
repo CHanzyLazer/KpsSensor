@@ -1,0 +1,642 @@
+###############
+# key setting #
+###############
+# if it is mouse, set it 'mleft' or 'mright'
+# if you don't use this key, set it empty
+# use 'space' to identify space
+# use 'up'/'down'/'left'/'right' to identify direction key
+key_setting:
+  key1: 'z'
+  key2: 'x'
+  key3:
+  key4:
+  key5:
+  key6:
+  key7:
+  key8:
+  key9:
+  key10:
+###############
+# tap setting #
+###############
+tap_setting:
+  dposition_decrease: 0.05
+  # 0-0.50, speed to decrease the key effect, HIGHER IS FASTER
+  tapframes: 30
+  # 1-1000, MUST be integer,length of frames to detect your tap, higher will make the results more refined,lower will make the results react faster
+  need_standframes: 50
+  # 1-1000, MUST be integer, length of frames you need to stand, higher will make the results more refined,lower will make the results react faster
+  basemul: 10
+  # 1-1000, MUST be integer, base speed to change display kps, HIGHER IS SLOWER
+  decrease_lv: 1
+  # 0-8, MUST be integer, decrease the speed when close to real kps, HIGHER IS SLOWER
+  zero_decrease_lv: 0
+  # 0-8, MUST be integer, decrease the speed when close to zero, HIGHER IS SLOWER
+###################
+# display setting #
+###################
+dispaly_setting:
+  
+  center_num: 4
+  # defult: 4
+  # set the base kps in center of the plate
+  # 0.1-50, defult is recommanded
+  # the real kps will be 'center_num*arc_tap_cmul*keynum' or 'center_num*arc_move_cmul'
+  # this will also effect the color change, change color_stepmul to set back if you don't want the effect
+  diff_font: true
+  font_path: skin/font/thin
+  # set whether the items use the different font, if it is 'false', all of them will use the font in 'font_path'
+  
+  idle_Kps: 0.1
+  idle_speed: 0.5
+  # set when the sensor become idling
+  
+  key_button_effect: true
+  effect_mul: 0.7
+  # set key button effect display
+  
+  step_color: [[0,255,255],[0,200,200],[200,200,0],[255,0,0],[100,0,180]]
+  # set the colors in color change
+  color_step: [0.6,1.2,1.8]
+  # set 3 color change steps
+  # 0.01-10, MUST be increasing
+  # each color setting is coming soon
+  
+  window_size: [256,256]
+  window_name: Kps_Sensor
+  show_lag: false
+  
+  # arc of tapping display setting
+  show_arc_tap: true # set whether sensor show the arc of tapping
+  arc_tap_path:
+  - skin/arc_tap_2.png
+  arc_tap_position: [0,0]
+  arc_tap_anchor: TL # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+  arc_tap_size: [256,256]
+  arc_tap_range: [150,240]
+  arc_tap_cmul: 1.0 # set the multiple of kps in center
+  arc_tap_ccolor: true # set whether the kps change its color
+  # arc_tap_basecolor: [0,0,255]
+  
+  # arc of mouse moving display setting
+  show_arc_move: true # set whether sensor show the arc of mouse moving
+  arc_move_path:
+  - skin/arc_move.png
+  arc_move_position: [0,0]
+  arc_move_anchor: TL # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+  arc_move_size: [256,256]
+  arc_move_range: [150,240]
+  arc_move_cmul: 1.0 # set the multiple of move speed in center
+  arc_move_ccolor: false
+  # arc_move_basecolor: [0,0,255]
+  
+  # total kps display setting
+  akps_font_path: skin/font/thin
+  akps_position: [163,130]
+  akps_anchor: BR # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+  akps_size: 30 # pixels of height of the kps number
+  akps_gap: 2 # pixels of gap between the kps number
+  akps_ccolor: true # set whether the kps change its color
+  # akps_basecolor: [0,255,255]
+  
+  # number of all the key button have tapped display setting
+  tapnum_font_path: skin/font/thin
+  tapnum_position: [128,240]
+  tapnum_anchor: BC # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+  tapnum_size: 12 # pixels of height of the tap number
+  tapnum_gap: 2 # pixels of gap between the tap number
+  
+  # text behide total kps display setting
+  mtext_font_path: skin/font/thin
+  mtext_position: [168,135]
+  mtext_anchor: BL
+  mtext_size: [55,20]
+  mtext_gap: 2
+  
+##############################
+# key button display setting #
+##############################
+# can have same name in "display_setting", here is prioritized.
+key_dispaly_setting:
+  # set each key button when keynum is 1
+  keynum1_setting:
+    # key button display setting
+    key_button_path:
+    - - skin/key1_up.png
+    - - skin/key1_down.png
+    - - skin/key1_effect.png
+    key_button_position: [[128,105]]
+    key_button_anchor: ['TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_button_size: [[150,150]]
+    # kps of each key button display setting
+    show_key_kps: true
+    key_kps_font_path:
+    - skin/font/thin
+    key_kps_position: [[131,190]]
+    key_kps_anchor: ['TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_kps_size: [13,13] # pixels of height of the kps number
+    key_kps_gap: [1,1] # pixels of gap between the kps number
+    key_kps_ccolor: true # set whether the kps change its color
+    # key_kps_basecolor: [0,0,255]
+    # number of each key button have tapped display setting
+    show_key_tapnum: false
+    key_tapnum_font_path:
+    - skin/font/thin
+    key_tapnum_position: [[131,190]]
+    key_tapnum_anchor: ['TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_tapnum_size: [7] # pixels of height of the tap number
+    key_tapnum_gap: [0] # pixels of gap between the tap number
+  
+  # set each key button when keynum is 2
+  keynum2_setting:
+    # key button display setting
+    key_button_path:
+    - - skin/key1_up.png
+      - skin/key2_up.png
+    - - skin/key1_down.png
+      - skin/key2_down.png
+    - - skin/key1_effect.png
+      - skin/key2_effect.png
+    key_button_position: [[98,115],[158,115]]
+    key_button_anchor: ['TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_button_size: [[140,140],[140,140]]
+    # kps of each key button display setting
+    show_key_kps: true
+    key_kps_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    key_kps_position: [[100,190],[160,190]]
+    key_kps_anchor: ['TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_kps_size: [12,12] # pixels of height of the kps number
+    key_kps_gap: [1,1] # pixels of gap between the kps number
+    key_kps_ccolor: true # set whether the kps change its color
+    # key_kps_basecolor: [0,0,255]
+    # number of each key button have tapped display setting
+    show_key_tapnum: false
+    key_tapnum_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    key_tapnum_position: [[100,190],[160,190]]
+    key_tapnum_anchor: ['TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_tapnum_size: [7,7] # pixels of height of the tap number
+    key_tapnum_gap: [0,0] # pixels of gap between the tap number
+    
+  # set each key button when keynum is 3
+  keynum3_setting:
+    # key button display setting
+    key_button_path:
+    - - skin/key1_up.png
+      - skin/key2_up.png
+      - skin/key3_up.png
+    - - skin/key1_down.png
+      - skin/key2_down.png
+      - skin/key3_down.png
+    - - skin/key1_effect.png
+      - skin/key2_effect.png
+      - skin/key3_effect.png
+    key_button_position: [[88,130],[128,130],[168,130]]
+    key_button_anchor: ['TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_button_size: [[110,110],[110,110],[110,110]]
+    # kps of each key button display setting
+    show_key_kps: true
+    key_kps_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_kps_position: [[89,190],[129,190],[169,190]]
+    key_kps_anchor: ['TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_kps_size: [10,10,10] # pixels of height of the kps number
+    key_kps_gap: [0,0,0] # pixels of gap between the kps number
+    key_kps_ccolor: true # set whether the kps change its color
+    # key_kps_basecolor: [0,0,255]
+    # number of each key button have tapped display setting
+    show_key_tapnum: false
+    key_tapnum_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_tapnum_position: [[89,190],[129,190],[169,190]]
+    key_tapnum_anchor: ['TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_tapnum_size: [7,7,7] # pixels of height of the tap number
+    key_tapnum_gap: [0,0,0] # pixels of gap between the tap number
+    
+  # set each key button when keynum is 4
+  keynum4_setting:
+    # key button display setting
+    key_button_path:
+    - - skin/key1_up.png
+      - skin/key2_up.png
+      - skin/key3_up.png
+      - skin/key4_up.png
+    - - skin/key1_down.png
+      - skin/key2_down.png
+      - skin/key3_down.png
+      - skin/key4_down.png
+    - - skin/key1_effect.png
+      - skin/key2_effect.png
+      - skin/key3_effect.png
+      - skin/key4_effect.png
+    key_button_position: [[70,130],[105,130],[151,130],[186,130]]
+    key_button_anchor: ['TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_button_size: [[110,110],[110,110],[110,110],[110,110]]
+    # kps of each key button display setting
+    show_key_kps: true
+    key_kps_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_kps_position: [[71,190],[106,190],[152,190],[187,190]]
+    key_kps_anchor: ['TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_kps_size: [10,10,10,10] # pixels of height of the kps number
+    key_kps_gap: [0,0,0,0] # pixels of gap between the kps number
+    key_kps_ccolor: true # set whether the kps change its color
+    # key_kps_basecolor: [0,0,255]
+    # number of each key button have tapped display setting
+    show_key_tapnum: false
+    key_tapnum_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_tapnum_position: [[71,190],[106,190],[152,190],[187,190]]
+    key_tapnum_anchor: ['TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_tapnum_size: [7,7,7,7] # pixels of height of the tap number
+    key_tapnum_gap: [0,0,0,0] # pixels of gap between the tap number
+    
+  # set each key button when keynum is 5
+  keynum5_setting:
+    # key button display setting
+    key_button_path:
+    - - skin/key1_up.png
+      - skin/key2_up.png
+      - skin/key3_up.png
+      - skin/key4_up.png
+      - skin/key5_up.png
+    - - skin/key1_down.png
+      - skin/key2_down.png
+      - skin/key3_down.png
+      - skin/key4_down.png
+      - skin/key5_down.png
+    - - skin/key1_effect.png
+      - skin/key2_effect.png
+      - skin/key3_effect.png
+      - skin/key4_effect.png
+      - skin/key5_effect.png
+    key_button_position: [[70,130],[99,130],[128,130],[157,130],[186,130]]
+    key_button_anchor: ['TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_button_size: [[100,100],[100,100],[100,100],[100,100],[100,100]]
+    # kps of each key button display setting
+    show_key_kps: true
+    key_kps_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_kps_position: [[71,180],[100,180],[129,180],[158,180],[187,180]]
+    key_kps_anchor: ['TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_kps_size: [10,10,10,10,10] # pixels of height of the kps number
+    key_kps_gap: [0,0,0,0,0] # pixels of gap between the kps number
+    key_kps_ccolor: true # set whether the kps change its color
+    # key_kps_basecolor: [0,0,255]
+    # number of each key button have tapped display setting
+    show_key_tapnum: false
+    key_tapnum_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_tapnum_position: [[71,180],[100,180],[129,180],[158,180],[187,180]]
+    key_tapnum_anchor: ['TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_tapnum_size: [7,7,7,7,7] # pixels of height of the tap number
+    key_tapnum_gap: [0,0,0,0,0] # pixels of gap between the tap number
+    
+  # set each key button when keynum is 6
+  keynum6_setting:
+    # key button display setting
+    key_button_path:
+    - - skin/key1_up.png
+      - skin/key2_up.png
+      - skin/key3_up.png
+      - skin/key4_up.png
+      - skin/key5_up.png
+      - skin/key6_up.png
+    - - skin/key1_down.png
+      - skin/key2_down.png
+      - skin/key3_down.png
+      - skin/key4_down.png
+      - skin/key5_down.png
+      - skin/key6_down.png
+    - - skin/key1_effect.png
+      - skin/key2_effect.png
+      - skin/key3_effect.png
+      - skin/key4_effect.png
+      - skin/key5_effect.png
+      - skin/key6_effect.png
+    key_button_position: [[60,145],[85,145],[110,145],[146,145],[171,145],[196,145]]
+    key_button_anchor: ['TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_button_size: [[100,100],[100,100],[100,100],[100,100],[100,100],[100,100]]
+    # kps of each key button display setting
+    show_key_kps: true
+    key_kps_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_kps_position: [[61,195],[86,195],[111,195],[147,195],[172,195],[197,195]]
+    key_kps_anchor: ['TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_kps_size: [10,10,10,10,10,10] # pixels of height of the kps number
+    key_kps_gap: [0,0,0,0,0,0] # pixels of gap between the kps number
+    key_kps_ccolor: true # set whether the kps change its color
+    # key_kps_basecolor: [0,0,255]
+    # number of each key button have tapped display setting
+    show_key_tapnum: false
+    key_tapnum_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_tapnum_position: [[61,195],[86,195],[111,195],[147,195],[172,195],[197,195]]
+    key_tapnum_anchor: ['TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_tapnum_size: [7,7,7,7,7,7] # pixels of height of the tap number
+    key_tapnum_gap: [0,0,0,0,0,0] # pixels of gap between the tap number
+    
+  # set each key button when keynum is 7
+  keynum7_setting:
+    tapnum_position: [10,246]
+    tapnum_anchor: BL
+    # key button display setting
+    key_button_path:
+    - - skin/key1_up.png
+      - skin/key2_up.png
+      - skin/key3_up.png
+      - skin/keyW_up.png
+      - skin/key5_up.png
+      - skin/key6_up.png
+      - skin/key7_up.png
+    - - skin/key1_down.png
+      - skin/key2_down.png
+      - skin/key3_down.png
+      - skin/keyW_down.png
+      - skin/key5_down.png
+      - skin/key6_down.png
+      - skin/key7_down.png
+    - - skin/key1_effect.png
+      - skin/key2_effect.png
+      - skin/key3_effect.png
+      - skin/keyW_effect.png
+      - skin/key5_effect.png
+      - skin/key6_effect.png
+      - skin/key7_effect.png
+    key_button_position: [[60,152],[85,152],[110,152],[128,205],[146,152],[171,152],[196,152]]
+    key_button_anchor: ['TC','TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_button_size: [[90,90],[90,90],[90,90],[120,60],[90,90],[90,90],[90,90]]
+    # kps of each key button display setting
+    show_key_kps: true
+    key_kps_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_kps_position: [[61,195],[86,195],[111,195],[129,230],[147,195],[172,195],[197,195]]
+    key_kps_anchor: ['TC','TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_kps_size: [9,9,9,10,9,9,9] # pixels of height of the kps number
+    key_kps_gap: [0,0,0,0,0,0,0] # pixels of gap between the kps number
+    key_kps_ccolor: true # set whether the kps change its color
+    # key_kps_basecolor: [0,0,255]
+    # number of each key button have tapped display setting
+    show_key_tapnum: false
+    key_tapnum_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_tapnum_position: [[61,195],[86,195],[111,195],[129,230],[147,195],[172,195],[197,195]]
+    key_tapnum_anchor: ['TC','TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_tapnum_size: [7,7,7,7,7,7,7] # pixels of height of the tap number
+    key_tapnum_gap: [0,0,0,0,0,0,0] # pixels of gap between the tap number
+    
+  # set each key button when keynum is 8
+  keynum8_setting:
+    tapnum_position: [10,246]
+    tapnum_anchor: BL
+    # key button display setting
+    key_button_path:
+    - - skin/key1_up.png
+      - skin/key2_up.png
+      - skin/key3_up.png
+      - skin/keyW_up.png
+      - skin/key5_up.png
+      - skin/key6_up.png
+      - skin/key7_up.png
+      - skin/key8_up.png
+    - - skin/key1_down.png
+      - skin/key2_down.png
+      - skin/key3_down.png
+      - skin/keyW_down.png
+      - skin/key5_down.png
+      - skin/key6_down.png
+      - skin/key7_down.png
+      - skin/key8_down.png
+    - - skin/key1_effect.png
+      - skin/key2_effect.png
+      - skin/key3_effect.png
+      - skin/keyW_effect.png
+      - skin/key5_effect.png
+      - skin/key6_effect.png
+      - skin/key7_effect.png
+      - skin/key8_effect.png
+    key_button_position: [[60,152],[85,152],[110,152],[128,205],[146,152],[171,152],[196,152],[223,160]]
+    key_button_anchor: ['TC','TC','TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_button_size: [[90,90],[90,90],[90,90],[120,60],[90,90],[90,90],[90,90],[90,90]]
+    # kps of each key button display setting
+    show_key_kps: true
+    key_kps_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_kps_position: [[61,195],[86,195],[111,195],[129,230],[147,195],[172,195],[197,195],[224,203]]
+    key_kps_anchor: ['TC','TC','TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_kps_size: [9,9,9,10,9,9,9,9] # pixels of height of the kps number
+    key_kps_gap: [0,0,0,0,0,0,0,0] # pixels of gap between the kps number
+    key_kps_ccolor: true # set whether the kps change its color
+    # key_kps_basecolor: [0,0,255]
+    # number of each key button have tapped display setting
+    show_key_tapnum: false
+    key_tapnum_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_tapnum_position: [[61,195],[86,195],[111,195],[129,230],[147,195],[172,195],[197,195],[224,203]]
+    key_tapnum_anchor: ['TC','TC','TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_tapnum_size: [7,7,7,7,7,7,7,7] # pixels of height of the tap number
+    key_tapnum_gap: [0,0,0,0,0,0,0,0] # pixels of gap between the tap number
+    
+  # set each key button when keynum is 9
+  keynum9_setting:
+    tapnum_position: [10,246]
+    tapnum_anchor: BL
+    # key button display setting
+    key_button_path:
+    - - skin/key1_up.png
+      - skin/key2_up.png
+      - skin/key3_up.png
+      - skin/key4_up.png
+      - skin/keyW_up.png
+      - skin/key5_up.png
+      - skin/key6_up.png
+      - skin/key7_up.png
+      - skin/key8_up.png
+    - - skin/key1_down.png
+      - skin/key2_down.png
+      - skin/key3_down.png
+      - skin/key4_down.png
+      - skin/keyW_down.png
+      - skin/key5_down.png
+      - skin/key6_down.png
+      - skin/key7_down.png
+      - skin/key8_down.png
+    - - skin/key1_effect.png
+      - skin/key2_effect.png
+      - skin/key3_effect.png
+      - skin/key4_effect.png
+      - skin/keyW_effect.png
+      - skin/key5_effect.png
+      - skin/key6_effect.png
+      - skin/key7_effect.png
+      - skin/key8_effect.png
+    key_button_position: [[33,160],[60,152],[85,152],[110,152],[128,205],[146,152],[171,152],[196,152],[223,160]]
+    key_button_anchor: ['TC','TC','TC','TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_button_size: [[90,90],[90,90],[90,90],[90,90],[120,60],[90,90],[90,90],[90,90],[90,90]]
+    # kps of each key button display setting
+    show_key_kps: true
+    key_kps_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_kps_position: [[34,203],[61,195],[86,195],[111,195],[129,230],[147,195],[172,195],[197,195],[224,203]]
+    key_kps_anchor: ['TC','TC','TC','TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_kps_size: [9,9,9,9,10,9,9,9,9] # pixels of height of the kps number
+    key_kps_gap: [0,0,0,0,0,0,0,0,0] # pixels of gap between the kps number
+    key_kps_ccolor: true # set whether the kps change its color
+    # key_kps_basecolor: [0,0,255]
+    # number of each key button have tapped display setting
+    show_key_tapnum: false
+    key_tapnum_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_tapnum_position: [[34,203],[61,195],[86,195],[111,195],[129,230],[147,195],[172,195],[197,195],[224,203]]
+    key_tapnum_anchor: ['TC','TC','TC','TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_tapnum_size: [7,7,7,7,7,7,7,7,7] # pixels of height of the tap number
+    key_tapnum_gap: [0,0,0,0,0,0,0,0,0] # pixels of gap between the tap number
+    
+  # set each key button when keynum is 10
+  keynum10_setting:
+    tapnum_position: [10,246]
+    tapnum_anchor: BL
+    # key button display setting
+    key_button_path:
+    - - skin/key1_up.png
+      - skin/key2_up.png
+      - skin/key3_up.png
+      - skin/key4_up.png
+      - skin/key5_up.png
+      - skin/key6_up.png
+      - skin/key7_up.png
+      - skin/key8_up.png
+      - skin/key9_up.png
+      - skin/key10_up.png
+    - - skin/key1_down.png
+      - skin/key2_down.png
+      - skin/key3_down.png
+      - skin/key4_down.png
+      - skin/key5_down.png
+      - skin/key6_down.png
+      - skin/key7_down.png
+      - skin/key8_down.png
+      - skin/key9_down.png
+      - skin/key10_down.png
+    - - skin/key1_effect.png
+      - skin/key2_effect.png
+      - skin/key3_effect.png
+      - skin/key4_effect.png
+      - skin/key5_effect.png
+      - skin/key6_effect.png
+      - skin/key7_effect.png
+      - skin/key8_effect.png
+      - skin/key9_effect.png
+      - skin/key10_effect.png
+    key_button_position: [[23,160],[50,152],[75,152],[100,145],[114,185],[142,185],[156,145],[181,152],[206,152],[233,160]]
+    key_button_anchor: ['TC','TC','TC','TC','TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_button_size: [[90,90],[90,90],[90,90],[90,90],[90,90],[90,90],[90,90],[90,90],[90,90],[90,90]]
+    # kps of each key button display setting
+    show_key_kps: true
+    key_kps_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_kps_position: [[24,203],[51,195],[76,195],[101,188],[115,227],[143,227],[157,188],[182,195],[207,195],[234,203]]
+    key_kps_anchor: ['TC','TC','TC','TC','TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_kps_size: [9,9,9,9,9,9,9,9,9,9] # pixels of height of the kps number
+    key_kps_gap: [0,0,0,0,0,0,0,0,0,0] # pixels of gap between the kps number
+    key_kps_ccolor: true # set whether the kps change its color
+    # key_kps_basecolor: [0,0,255]
+    # number of each key button have tapped display setting
+    show_key_tapnum: false
+    key_tapnum_font_path:
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    - skin/font/thin
+    key_tapnum_position: [[24,203],[51,195],[76,195],[101,180],[112,220],[146,220],[157,180],[182,195],[207,195],[234,203]]
+    key_tapnum_anchor: ['TC','TC','TC','TC','TC','TC','TC','TC','TC','TC'] # can be 'BR' 'BL' 'BC' or 'TR' 'TL' 'TC' or 'CENTER'
+    key_tapnum_size: [7,7,7,7,7,7,7,7,7,7] # pixels of height of the tap number
+    key_tapnum_gap: [0,0,0,0,0,0,0,0,0,0] # pixels of gap between the tap number
