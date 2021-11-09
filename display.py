@@ -43,6 +43,7 @@ class main:
                  show_arc_tap=True,
                  show_arc_move=True,
 
+                 sensor_basecolor=(0,0,0),
                  center_num = 4,
                  diff_font = True,       font_path='skin/font/thin',
                  idle_Kps=0.1,           idle_speed=0.5,
@@ -53,6 +54,7 @@ class main:
         self.all_key, self.akey = all_key, akey
         self.move = move
         self.keynum = keynum
+        self.sensor_basecolor = sensor_basecolor
         self.center = center_num
         self.sat = show_arc_tap
         self.sam = show_arc_move
@@ -120,7 +122,7 @@ class main:
             if self.sktn: self.key_tapnum_num    += [displayNum( *self.ktn_pos[i], *self.wins, self.ktn_path[i],                        self.ktn_size[i], anchor=self.ktn_anc[i], value=self.key_tapnum[i], gap=self.ktn_gap[i], xf=0)]
             if self.skk:  self.key_kps_num       += [displayNum( *self.kk_pos[i],  *self.wins, self.kk_path[i],      self.kk_size[i],  self.kk_ccolor, fill=self.kk_bcolor, anchor=self.kk_anc[i],  gap=self.kk_gap[i],       xf=1)]
         #self.baseimg = PIL.Image.open('lol.png').resize(self.wins, PIL.Image.ANTIALIAS)
-        self.baseimg = PIL.Image.new('RGBA', self.wins, (0,0,0,255))
+        self.baseimg = PIL.Image.new('RGBA', self.wins, (*self.sensor_basecolor,255))
         
 
         self.kbwin = Tk()
