@@ -181,6 +181,12 @@ class main:
                 speed = self.move.dspeed
                 self.max_Kps = KPS if KPS>self.max_Kps else self.max_Kps
                 self.max_speed = speed if speed>self.max_speed else self.max_speed
+                if self.akey.clearKPS == True: # known bug: press reset when not self.idle_idle will refresh self.max_KPS in next frame
+                    self.max_Kps = 0.0
+                    self._change_num(self.akps_num, self.max_Kps, self.akps_center)
+                    #self.mtext.set_option(display=1)
+                    self._display()
+                    self.akey.clearKPS = False
                 kkps, kp, kdp, key_tapnum = [], [], [], []
                 for i in range(self.keynum):
                     kkps += [self.all_key[i].dKPS]
