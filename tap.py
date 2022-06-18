@@ -22,6 +22,7 @@ class main:
                 allkeytap += keyn.alltap
             self.akey._cal_KPS(KPS)
             self.akey._cal_dKPS()
+            self.akey.check_reset_maxKPS()
             self.akey.alltap = allkeytap
             sleep(0.01)
 
@@ -43,6 +44,7 @@ class allKey:
         self.alltap = 0
         self.KPS = 0
         self.dKPS = 0
+        self.clearKPS = False
         self.standframes = 0
         self.stand_all_KPS = 0
         # exit
@@ -95,6 +97,10 @@ class allKey:
                 self.__change_dKPS()                                         # KPS is not stand
 
         return self.dKPS
+    
+    def check_reset_maxKPS(self):
+        if is_pressed("ctrl+r"):
+            self.clearKPS = True
 
 class key(allKey):
     def __init__(self, keynum, keystr, is_mouse = False, dposition_decrease= 0.05, tapframes = 100, need_standframes = 100, basemul = 10, decrease_lv = 2, zero_decrease_lv = 1):
